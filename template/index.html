@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>Anonymous Message</title>
+    <style>
+        body{
+            background-image: conic-gradient(from .5turn at bottom center, lightblue, white);
+        }
+        .container{
+            margin-bottom: 40px;
+            height: 100vh;
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .message{
+            border: solid 2px rgba(81, 81, 81, 0.425);
+            border-radius: 0px 0px 5px 5px;
+            padding: 40px;
+            padding-bottom: 60px;
+            padding-top: 10px;
+            width: 500px;
+            height: auto;
+            background-color: whitesmoke;
+        }
+        .con{
+            position: absolute;
+            top: 20px;
+        }
+        img{
+            border-radius: 5px 5px 0px 0px;
+            width: 500px;
+            height: auto;
+        }
+        h3{
+            color: rgb(31, 19, 5);
+        }
+        button{
+            margin-top: 20px;
+        }
+        @media screen and (max-width: 580px) {
+            .message{
+                width: 400px;
+                padding-bottom: 40px;
+                margin-bottom: 50px;
+            }
+            img{
+                width: 400px;
+            }
+        }
+        @media screen and (max-width: 425px) {
+            .message{
+                width: 300px;
+                padding: 20px;
+                padding-bottom: 30px;
+                margin-bottom: 30px;
+            }
+            img{
+                width: 300px;
+            }
+            h3{
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="con">
+            <h3 class="text-center">What Do You Think About Me?</h3>
+        <img src="/static/msg.jpg" alt="">
+        <div class="message">
+            <form action="/" method="post" class="was-validated">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="3" name="message" placeholder="Type your thoughts about me" required></textarea>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
